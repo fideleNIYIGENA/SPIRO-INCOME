@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: moto-income-backend
+    env: node
+    region: oregon
+    root: backend
+    plan: starter
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true

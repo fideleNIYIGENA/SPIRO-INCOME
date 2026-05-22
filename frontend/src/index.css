@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #030712;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed,
+    linear-gradient(135deg, rgba(2, 6, 23, 0.92) 0%, rgba(7, 17, 31, 0.88) 48%, rgba(3, 7, 18, 0.9) 100%);
+  color: #e5edf8;
+}
+
+.glass {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(2, 6, 23, 0.75));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.input {
+  @apply w-full rounded-lg border border-cyan-500/30 bg-slate-950/80 px-4 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/30 transition-all hover:from-cyan-400 hover:to-blue-500 hover:shadow-cyan-400/50 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition-all hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-200 hover:shadow-lg hover:shadow-cyan-500/20;
+}
+
+.table-cell {
+  @apply px-4 py-3 text-sm;
+}
