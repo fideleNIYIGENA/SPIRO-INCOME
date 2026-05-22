@@ -12,9 +12,12 @@ const connectionString =
     return `postgresql://${encodeURIComponent(user)}:${encodeURIComponent(password)}@${host}:${port}/${database}`;
   })();
 
+const isProduction = process.env.NODE_ENV === "production";
+const requiresSsl = connectionString.includes("sslmode=require") || connectionString.includes("neon.tech");
+
 const pool = new Pool({
   connectionString,
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false
+  ssl: isProduction || requiresSsl ? { rejectUnauthorized: false } : false
 });
 
 function translateSql(text) {

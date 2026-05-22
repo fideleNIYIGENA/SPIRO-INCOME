@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { pool } = require("../config/db");
+const { query, pool } = require("../config/db");
 const { allowedAdmins } = require("./allowedAdmins");
 
 async function initializeDatabase() {
@@ -45,7 +45,7 @@ async function initializeDatabase() {
 
   const hashed = await bcrypt.hash(process.env.DEFAULT_ADMIN_PASSWORD || "Spiro@2026", 12);
   for (const email of allowedAdmins) {
-    await pool.query(
+    await query(
       `INSERT INTO admins (email, password)
        VALUES (?, ?)
        ON CONFLICT (email) DO UPDATE SET password = EXCLUDED.password`,

@@ -39,7 +39,7 @@ Moto Income
 ## Requirements
 
 - Node.js 18+
-- MySQL 8+
+- PostgreSQL 14+
 - npm
 
 ## Backend Setup
@@ -52,9 +52,9 @@ npm run setup
 npm run dev
 ```
 
-Edit `backend/.env` if your MySQL username, password, host, or port is different.
+Edit `backend/.env` with your `DATABASE_URL` connection string.
 
-`npm run setup` creates the `moto_income` database, all required tables, the password reset token table, and inserts the two authorized admin accounts.
+`npm run setup` creates all required tables, the password reset token table, and inserts the two authorized admin accounts in the PostgreSQL database.
 
 ## Frontend Setup
 
@@ -74,13 +74,7 @@ http://127.0.0.1:5173
 
 ## Optional Sample Data
 
-After running backend setup, you can insert sample drivers and income records:
-
-```bash
-mysql -u root -p moto_income < database/sample_data.sql
-```
-
-Run that command from the project root. If your MySQL user has no password, remove `-p`.
+The `database/sample_data.sql` file contains MySQL-formatted sample data. For PostgreSQL, the backend setup script (`npm run setup`) automatically initializes the tables and seeds the admin users. You can add drivers and income records directly from the React frontend UI once it is running.
 
 ## API Routes
 
